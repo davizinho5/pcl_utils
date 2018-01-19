@@ -15,7 +15,8 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 find_package(PCL 1.7.3 REQUIRED)
-find_package(OpenCV 2 REQUIRED)
+#find_package(OpenCV 2 REQUIRED) cambiado porque peta la configuracion de la compilacion
+find_package(OpenCV 3 REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -150,6 +151,9 @@ add_executable(bin_png2image src/png2image.cpp)
 
 add_executable(bin_kinect_info_pub src/camera_kinect_info_pub.cpp)
 add_executable(bin_xtion_info_pub src/camera_xtion_info_pub.cpp)
+add_executable(bin_camera_rgb_and_info_synch src/camera_rgb_and_info_synch.cpp)
+add_executable(bin_testCB src/testCB.cpp)
+
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
@@ -165,6 +169,8 @@ target_link_libraries(bin_png2image ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 target_link_libraries(bin_kinect_info_pub ${catkin_LIBRARIES})
 target_link_libraries(bin_xtion_info_pub ${catkin_LIBRARIES})
+target_link_libraries(bin_camera_rgb_and_info_synch ${catkin_LIBRARIES})
+target_link_libraries(bin_testCB ${catkin_LIBRARIES})
 
 
 
