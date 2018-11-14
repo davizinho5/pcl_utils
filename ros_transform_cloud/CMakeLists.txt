@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(cloud_io)
+project(ros_transform_cloud)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -9,14 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   pcl_conversions
   pcl_ros
   sensor_msgs
-  cv_bridge
-  image_transport
-  tf
 )
-
-find_package(PCL 1.7.3 REQUIRED)
-#find_package(OpenCV 2 REQUIRED) cambiado porque peta la configuracion de la compilacion
-find_package(OpenCV 3 REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -109,7 +102,7 @@ find_package(OpenCV 3 REQUIRED)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES pcd_reader
+#  LIBRARIES pcl_ros_pkg
 #  CATKIN_DEPENDS pcl_conversions pcl_ros roscpp sensor_msgs
 #  DEPENDS system_lib
 )
@@ -125,47 +118,31 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-include_directories(${PCL_INCLUDE_DIRS})
-link_directories(${PCL_LIBRARY_DIRS})
-add_definitions(${PCL_DEFINITIONS})
-
-include_directories(${OpenCV_INCLUDE_DIRS})
-
 ## Declare a C++ library
-# add_library(pcd_reader
-#   src/${PROJECT_NAME}/pcd_reader.cpp
+# add_library(pcl_ros_pkg
+#   src/${PROJECT_NAME}/pcl_ros_pkg.cpp
 # )
+
+
+
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(pcd_reader ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(pcl_ros_pkg ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-add_executable(bin_pcd_reader_ros_node src/read_pcd_ros.cpp)
-add_executable(bin_pcd_reader_pcl_node src/read_pcd_pcl.cpp)
-add_executable(bin_pcd_multi_reader_node src/read_multi_pcd.cpp)
-add_executable(bin_pcd_save src/save_pcd.cpp)
-
-add_executable(bin_png2image src/png2image.cpp)
-
-add_executable(bin_kinect_info_pub src/camera_kinect_info_pub.cpp)
-add_executable(bin_xtion_info_pub src/camera_xtion_info_pub.cpp)
-add_executable(bin_camera_rgb_and_info_synch src/camera_rgb_and_info_synch.cpp)
+add_executable(bin_pc_transform src/pc_transform.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-#add_dependencies(pcd_reader_node ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+# add_dependencies(pcl_ros_pkg_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(bin_pcd_reader_ros_node ${catkin_LIBRARIES})
-target_link_libraries(bin_pcd_reader_pcl_node ${catkin_LIBRARIES})
-target_link_libraries(bin_pcd_multi_reader_node ${catkin_LIBRARIES})
-target_link_libraries(bin_pcd_save ${catkin_LIBRARIES})
+# target_link_libraries(pcl_ros_pkg_node
+#   ${catkin_LIBRARIES}
+# )
 
-target_link_libraries(bin_png2image ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+target_link_libraries(bin_pc_transform ${catkin_LIBRARIES})
 
-target_link_libraries(bin_kinect_info_pub ${catkin_LIBRARIES})
-target_link_libraries(bin_xtion_info_pub ${catkin_LIBRARIES})
-target_link_libraries(bin_camera_rgb_and_info_synch ${catkin_LIBRARIES})
 

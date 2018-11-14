@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>    
+    <!-- Launches the nodes -->
+   
+    <!-- WORLD TO CAMERA -->
+  <node pkg="tf" type="static_transform_publisher" name="world2camera" args="1.0 1.0 1.0 0.0 0.0 0.0 1.0 /base_link /Base_Camera 100"/>   
+
+    <!--Convert a PCD file to ROS PointCloud msg -->
+    <node pkg="cloud_io" type="bin_pcd_reader_ros_node" name="pcd_reader" output="screen" args ="$(find cloud_io)/clouds/test_pcd.pcd 1"/>
+
+    <!--Transform a ROS PointCloud to a different reference frame -->
+    <node pkg="ros_transform_cloud" type="bin_pc_transform" name="pc_trasform" output="screen" args ="$(find pcl_euc_seg)/clouds/test_pcd_suelo.pcd 1"/>
+    
+    <!-- RVIZ -->
+	  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ros_transform_cloud)/rviz/tutorial1.rviz" required="true" />
+
+</launch>
