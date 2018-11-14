@@ -1,7 +1,7 @@
 # pcl_utils 
 pcl_utils metapackage that contains PCL based or PCL\_ROS based (indigo) helpers and examples, which include:
 
-__*1. cloud\_io:**__
+__**1. cloud\_io:**__
 
 read\_pcd\_pcl: reading a cloud saved as a .pcd file and constantly publishes it by a ROS topic as a PCL type (PointXYZRGB).
 
