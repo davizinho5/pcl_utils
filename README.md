@@ -1,5 +1,5 @@
 # pcl_utils 
-pcl_utils metapackage that contains PCL based or PCL\_ROS based (indigo) helpers and examples, which include:
+pcl_utils metapackage that contains PCL based or PCL\_ROS based helpers and examples, which include:
 
 __**1. cloud\_io:**__
 
@@ -28,7 +28,12 @@ __**2. pcl\_euc\_seg:**__
 
 Contains 2 examples of euclidean segmentation of objects using the PCL library. Two different launch files are provided, one of which also performs an octomap computing. Besides, examples PCDs, bag files and Rviz config files are included.
 
-__**3. ros\_trandform\_cloud:**__
+__**3. point_cloud_version:**__
+
+Contains a class used to convert point clouds between version 1 and 2 (sensor\_msgs/PointCloud and sensor\_msgs/PointCloud2). 
+It works both ways, it is only necessary to change the topics with the appropaiate point cloud version. A launch file example on how to perform conversions in any direction are included. 
+
+__**4. ros\_tf\_transform\_cloud:**__
 
 Contains one example of spatial transformation of a point cloud using the TF package from ROS. For testing, a point cloud publisher must be working too, anf the TF tree has to be setup. An example launch file with all the necessary items is placed in the launch folder. Note that, while showing the point cloud in rviz, becasue the transformation to the fixed frame is done internally, both clouds overlap in the same position. 
 

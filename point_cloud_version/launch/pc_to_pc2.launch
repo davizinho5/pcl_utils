@@ -1,0 +1,6 @@
+<launch>
+	<node pkg="cloud_io" name="point_cloud_converter" type="bin_pc_version_conversion" >
+		<remap from="points_in" to="my_PointCloud_topic_"/>
+		<remap from="points2_out" to="my_PointCloud2_topic_" />
+	</node>
+</launch>
