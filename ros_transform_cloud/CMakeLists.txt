@@ -132,7 +132,7 @@ include_directories(
 # add_dependencies(pcl_ros_pkg ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-add_executable(bin_pc_transform src/pc_transform.cpp)
+add_executable(bin_pc_tf_transform src/pc_transform.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
@@ -143,6 +143,6 @@ add_executable(bin_pc_transform src/pc_transform.cpp)
 #   ${catkin_LIBRARIES}
 # )
 
-target_link_libraries(bin_pc_transform ${catkin_LIBRARIES})
+target_link_libraries(bin_pc_tf_transform ${catkin_LIBRARIES})
 
 

@@ -15,7 +15,7 @@ int main( int argc, char ** argv )
   ros::Publisher pub2 = nh.advertise<sensor_msgs::Image>("/camera/rgb/image_rect_color", 10);
   ros::Publisher pub = nh.advertise<sensor_msgs::CameraInfo> ("/camera/rgb/camera_info", 10);
 
-  cv::Mat image = cv::imread( "test1.png", CV_LOAD_IMAGE_COLOR );
+  cv::Mat image = cv::imread( "test1.png", cv::IMREAD_COLOR );
 
   sensor_msgs::ImagePtr im_msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8", image).toImageMsg();
 

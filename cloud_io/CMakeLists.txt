@@ -14,9 +14,9 @@ find_package(catkin REQUIRED COMPONENTS
   tf
 )
 
-find_package(PCL 1.7.3 REQUIRED)
+find_package(PCL REQUIRED)
 #find_package(OpenCV 2 REQUIRED) cambiado porque peta la configuracion de la compilacion
-find_package(OpenCV 3 REQUIRED)
+find_package(OpenCV REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -168,4 +168,5 @@ target_link_libraries(bin_png2image ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 target_link_libraries(bin_kinect_info_pub ${catkin_LIBRARIES})
 target_link_libraries(bin_xtion_info_pub ${catkin_LIBRARIES})
 target_link_libraries(bin_camera_rgb_and_info_synch ${catkin_LIBRARIES})
+
 
